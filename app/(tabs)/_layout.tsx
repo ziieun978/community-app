@@ -1,15 +1,11 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-
+// app/(tabs)/_layout.tsx
+import { Tabs } from "expo-router";
 
 export default function TabLayout() {
-
-// 탭 네비
   return (
-    <Tabs screenOptions={{ headerShown: false }}>
+    <Tabs screenOptions={{ headerShown: false }} initialRouteName="index">
       <Tabs.Screen name="index" options={{ title: "홈" }} />
-      <Tabs.Screen name="explore" options={{ title: "탐색" }} />
-
+      <Tabs.Screen name="profile" options={{ title: "프로필" }} />
     </Tabs>
   );
 }

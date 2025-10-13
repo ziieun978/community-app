@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet } from "react-native";
 
-export default function HomeTab() {
+export default function ProfileTab() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>홈 탭 화면</Text>
+      <Text style={styles.text}>프로필 탭 화면</Text>
     </View>
   );
 }

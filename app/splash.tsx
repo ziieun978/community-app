@@ -1,23 +1,26 @@
-import { useRouter } from "expo-router"
 import { useEffect } from "react";
-import { Text, View } from "react-native"
+import { View, Text, StyleSheet } from "react-native";
+import { useRouter } from "expo-router";
 
 export default function Splash() {
-    const router = useRouter();
+  const router = useRouter();
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            // TODO: 로그인 상태 확인 로직 추가
-            router.replace("/sign/login")
-        }, 100);
-        
-        return () => clearTimeout(timer);
-    })
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      router.replace("/sign/login"); // 로그인 화면으로 이동
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <View>
-        <Text>community App</Text>
-
+    <View style={styles.container}>
+      <Text style={styles.text}>로딩 중...</Text>
     </View>
-  )
+  );
 }
+
+const styles = StyleSheet.create({
+  container: { flex: 1, justifyContent: "center", alignItems: "center" },
+  text: { fontSize: 16 },
+});
