@@ -14,9 +14,15 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
+      <Stack initialRouteName='sign/login'>
+        {/* Sign */}
+        {/* 테스트 */}
+       <Stack.Screen name='sign/login' options={{ headerShown: false }} />
+       <Stack.Screen name='sign/home' options={{ headerShown: false }} />
+
+        {/* 기존 탭, 모달
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
+        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} /> */}
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>
