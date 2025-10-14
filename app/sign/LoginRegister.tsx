@@ -8,9 +8,9 @@ import { Alert, Button, StyleSheet, Text, TextInput, View } from 'react-native';
 export default function LoginRegister() {
 
     const router = useRouter();
-    const [ email, setEmail ] = useState("");
-    const [ pw, setPw ] = useState("");
-    const [ uname, setUname ] = useState("");
+    const [email, setEmail] = useState("");
+    const [pw, setPw] = useState("");
+    const [uname, setUname] = useState("");
 
     const handleLoginRegister = async () => {
         if (!email || !pw || !uname) {

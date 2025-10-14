@@ -6,9 +6,10 @@ import React, { useState } from "react";
 import { Alert, Button, StyleSheet, Text, TextInput, View } from "react-native";
 
 export default function Login() {
+  // email, pw
   const router = useRouter();
-  const [ email, setEmail ] = useState("");
-  const [ pw, setPw ] = useState("");
+  const [email, setEmail] = useState("");
+  const [pw, setPw] = useState("");
 
   const handleLogin = async () => {
     try {
