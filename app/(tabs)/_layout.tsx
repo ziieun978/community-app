@@ -3,9 +3,9 @@ import { Tabs } from "expo-router";
 
 export default function TabLayout() {
   return (
-    <Tabs screenOptions={{ headerShown: false }} initialRouteName="index">
-      <Tabs.Screen name="index" options={{ title: "홈" }} />
-      <Tabs.Screen name="profile" options={{ title: "프로필" }} />
+    <Tabs>
+      <Tabs.Screen name="index" options={{ title: "게시판" }} />
+      <Tabs.Screen name="Profile" options={{ title: "프로필" }} />
     </Tabs>
   );
 }

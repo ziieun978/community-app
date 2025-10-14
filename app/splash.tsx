@@ -7,7 +7,7 @@ export default function Splash() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      router.replace("/sign/login"); // 로그인 화면으로 이동
+      router.replace("/sign/Login"); // 로그인 화면으로 이동
     }, 1000);
 
     return () => clearTimeout(timer);
