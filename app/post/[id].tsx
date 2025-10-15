@@ -20,6 +20,8 @@ export default function PostRegister() {
 
                 if (docSnap.exists()) {
                     setPost({ id: docSnap.id, ...docSnap.data() });
+
+                    
                 } else {
                     console.log("게시글 존재하지 않음");
                 }

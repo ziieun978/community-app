@@ -1,7 +1,7 @@
 import { db } from "@/firebaseConfig";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { useRouter } from "expo-router";
-import { collection, getDocs, onSnapshot, orderBy, query } from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { ActivityIndicator, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
@@ -9,10 +9,10 @@ import { ActivityIndicator, FlatList, Image, StyleSheet, Text, TouchableOpacity,
 export default function Home() {
   const [posts, setPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-
   const router = useRouter();
 
   useEffect(() => {
+    
     const q = query(collection(db, "posts"), orderBy("createdAt", "desc"));
     // 실시간
     const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -25,29 +25,7 @@ export default function Home() {
     });
 
     return () => unsubscribe();
-  })
-
-
-
-
-  
-  // useEffect(() => {
-  //   const fetchPosts = async () => {
-  //     try {
-  //       const q = query(collection(db,"posts"), orderBy("createAt", "desc"));
-  //       const photo = await getDocs(q);
-  //       const list = photo.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-  //       setPosts(list);
-  //     } catch (e) {
-  //       console.error("게시글 로드 실패:",e);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchPosts();
-  // },[]);
-
+  },[]);
 
   if (loading) {
     return (
@@ -68,7 +46,7 @@ export default function Home() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <TouchableOpacity
-          style={styles.postBox}
+          style={styles.card}
           onPress={() => router.push(`/post/${item.id}`)}>
            {item.imageUrl ? (
             <Image 
@@ -85,9 +63,6 @@ export default function Home() {
         />
       )}
 
-      {/* <Button title="게시글 작성" onPress={() => router.push("/post/Create")} /> */}
-
-
       <TouchableOpacity
         style={styles.btn}
         onPress={() => router.push("/post/Create")}
@@ -101,11 +76,22 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: "center", alignItems: "center" },
   center: { flex: 1, justifyContent: "center", alignItems: "center"},
-  title: { fontSize: 18, fontWeight: 'bold'},
+  title: { fontSize: 18, fontWeight: 'bold',},
   content: { marginTop:10, },
-  text: { fontSize: 16 },
-  postBox: {width:"100%"},
-  image:{ width:'100%', height: 200},
+  text: { fontSize: 16, },
+  card: { 
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    overflow: 'hidden',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  image:{ width:'100%', aspectRatio: 16/9,},
   btn: { position: "absolute", bottom: 30, right: 30, backgroundColor: "#047427", width: 60, height: 60, borderRadius:30,
      justifyContent: "center", alignItems: "center", },
 
