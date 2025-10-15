@@ -62,9 +62,9 @@ export default function LoginRegister() {
 
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: "center", alignItems: "center" },
-  title: { fontSize: 24 },
-  text: { fontSize: 16, marginBottom: 20 },
-  input: { borderWidth:1 },
+  container: { flex: 1, justifyContent: "center", alignItems: "center", padding: 20 },
+  title: { fontSize: 24, marginBottom:20, textAlign:'center', },
+  text: { fontSize: 16, marginBottom: 20,},
+  input: { width:'100%', borderWidth:1, padding: 10, margin:'2%', paddingHorizontal:'5%',},
   link: { color:"blue", textAlign: "center", }
 });
