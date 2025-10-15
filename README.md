@@ -1,4 +1,4 @@
-**--version** <br />
+**ver** <br />
 expo : 54.0.13 <br />
 expo-image-picker : 17.0.8 <br />
 node : 22.20.0 <br />
